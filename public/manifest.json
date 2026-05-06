@@ -1,0 +1,22 @@
+{
+  "name": "My To-do-list App",
+  "short_name": "To-do",
+  "description": "Stay organized and productive with timed tasks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#a8023c",
+  "theme_color": "#f69dbc",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
