@@ -17,16 +17,21 @@ export default function TaskItem({ task, onDelete, onToggle }) {
         setTimeLeft("Expired");
 
         if (!notified) {
-          if (Notification.permission === "granted") {
-            new Notification("⏰ Task Expired!", {
-              body: task.text,
-              icon: "/icon-192.png"
-            });
-          } else {
-            alert(`⏰ Task "${task.text}" expired!`);
-          }
-          setNotified(true);
-        }
+  if ("Notification" in window && Notification.permission === "granted") {
+    try {
+      new Notification("⏰ Task Expired!", {
+        body: task.text,
+        icon: "/icon-192.png",
+      });
+    } catch (e) {
+      alert(`⏰ Task "${task.text}" expired!`);
+    }
+  } else {
+    alert(`⏰ Task "${task.text}" expired!`);
+  }
+
+  setNotified(true);
+}
 
         clearInterval(interval);
       } else {
